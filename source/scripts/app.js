@@ -28,7 +28,7 @@
 			var json;
 			$.getJSON('data/dates.json', function(data) {
 				self.holidays = data.data;
-			});	
+			});
 		},
 
 		redLight: function(jqObj) {
@@ -350,8 +350,8 @@
 							target = target[this.getMonth() + 1];
 							if(this.getDate() in target) {
 								target = target[this.getDate()].isWorking;
-								if(target === 2) 
-									return true
+								if(target === 2)
+									return true;
 							}
 						}
 					}
