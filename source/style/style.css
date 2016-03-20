@@ -1,0 +1,224 @@
+html {
+   font-family: Helvetica;
+}
+
+body {
+   margin: 0;
+}
+
+input {
+   outline: none;
+}
+
+input.dateField:focus {
+   box-shadow: 0 0 6px #4EB5E6;
+}
+
+.outputFields {
+   height: 20px;
+   margin: 20px;
+   color: #4EB5E6;
+}
+
+.workDays {
+}
+
+.calendDays {
+}
+
+.header {
+   width: 100%;
+   height: 50px;
+   background-color: #FFFFFF;
+   box-shadow: 0 0 1px #4EB5E6;
+}
+
+.title {
+   color: #4EB5E6;
+   font-size: 23;
+   margin: 10px;
+   display: inline-block;
+}
+
+.dateField {
+   border: none;
+   box-shadow: 0 0 1px #4EB5E6;
+   width: 118px;
+   height: 22px;
+   padding-left: 3px;
+}
+
+.mainPanelBetween {
+   position: fixed;
+   z-index: 10;
+   height: 180px;
+   width: 515px;
+   background-color: #FFFFFF;
+   /*box-shadow: 0 0 1px #4EB5E6;*/
+   box-shadow: 0 4px 12px rgba(0,0,0,.15);
+   border-radius: 4px;
+   opacity: 0;
+}
+
+.mainPanelTo {
+   position: fixed;
+   z-index: 8;
+   height: 180px;
+   width: 515px;
+   background-color: #FFFFFF;
+   /*box-shadow: 0 0 1px #4EB5E6;*/
+   box-shadow: 0 4px 12px rgba(0,0,0,.15);
+   border-radius: 4px;
+   opacity: 0;
+}
+
+.switchBetweenButton {
+   height: 20px;
+   width: 110px;
+   color: #4EB5E6;
+   margin-left: auto;
+}
+
+.switchBetweenButton:hover {
+   cursor: pointer;
+   color: #0682BD;
+}
+
+.switchToButton {
+   height: 20px;
+   width: 158px;
+   color: #4EB5E6;
+   margin-left: auto;
+}
+
+.switchToButton:hover {
+   cursor: pointer;
+   color: #0682BD;
+}
+
+.iCloser {
+   height: 20px;
+   width: 69px;
+   color: #4EB5E6;
+   margin-left: auto;
+   margin-top: 5px;
+}
+
+.iCloser:hover {
+   cursor: pointer;
+   color: #0682BD;
+}
+
+.answerPanel {
+   position: fixed;
+   height: 180px;
+   width: 515px;
+   background-color: #FFFFFF;
+   /*box-shadow: 0 0 1px #4EB5E6;*/
+   box-shadow: 0 4px 12px rgba(0,0,0,.15);
+   border-radius: 4px;
+   left: 35%;
+   z-index: 0
+}
+
+.inputBetween {
+   margin: 20px;
+}
+
+.fromBetweenWrapper {
+   float: left;
+}
+
+.toBetweenWrapper {
+   float: right;
+}
+
+.fromToCheck {
+   display: inline-block;
+}
+
+.toWrapper {
+   float: left;
+}
+
+.howLong {
+   float: right;
+}
+
+.clear {
+   clear: both;
+}
+
+.checkbox {
+   display: inline-block;
+   height: 15px;
+   width: 15px;
+   margin: 10px 2px 0px 0px;
+}
+
+label {
+   display: inline-block;
+   vertical-align: text-top;
+   color: #4EB5E6;
+   font-size: 12px;
+}
+
+.fromDayBetween {
+   display: block;
+}
+
+.toDayBetween {
+   display: block;
+}
+
+.submitBetweenButton {
+   height: 20px;
+   width: 100px;
+   color: #4EB5E6;
+   margin-top: 24px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.submitBetweenButton:hover {
+   cursor: pointer;
+   color: #0682BD;
+}
+
+.submitToButton {
+   height: 20px;
+   width: 100px;
+   color: #4EB5E6;
+   margin-top: 24px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.submitToButton:hover {
+   cursor: pointer;
+   color: #0682BD;
+}
+
+.titleBetween {
+   margin-left: 25px;
+   padding-top: 16px;
+   font-size: 22px;
+   color: #4EB5E6;
+}
+
+.titleBetween:hover {
+   cursor: default;
+}
+
+.fromDayTo {
+   display: block;
+}
+
+.howLong {
+   width: 45px;
+   height: 22px;
+   margin-left: 30px;
+   box-shadow: 0 0 1px #4EB5E6;
+   border: none;
+   padding-left: 5px;
+}
