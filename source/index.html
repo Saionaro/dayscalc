@@ -12,13 +12,13 @@
          <div class="titleBetween">Количество дней между датами</div>
          <div class="inputBetween">
             <div class="fromBetweenWrapper">
-               <input class="fromDayBetween dateField" type="text">
-               <input type="checkbox" id="fromBetweenCheck" class="checkbox">
+               <input class="fromDayBetween dateField" type="text" tabindex="1">
+               <input type="checkbox" id="fromBetweenCheck" class="checkbox" tabindex="-1">
                <label for="fromBetweenCheck">Включительно</label>
             </div>
             <div class="toBetweenWrapper">
-               <input class="toDayBetween dateField" type="text">
-               <input type="checkbox" id="toBetweenCheck" class="checkbox">
+               <input class="toDayBetween dateField" type="text" tabindex="2">
+               <input type="checkbox" id="toBetweenCheck" class="checkbox" tabindex="-1">
                <label for="toBetweenCheck">Включительно</label>
             </div>
          </div>
@@ -30,8 +30,8 @@
          <div class="titleBetween">Количество дней до даты</div>
          <div class="inputBetween">
             <div class="toWrapper">
-               <input class="fromDayTo dateField" type="text">
-               <input type="checkbox" id="fromToCheck" class="checkbox">
+               <input class="fromDayTo dateField" type="text" tabindex="3">
+               <input type="checkbox" id="fromToCheck" class="checkbox" tabindex="-1">
                <label for="fromToCheck">Включительно</label>
             </div>
             <input class="howLong" type="number">
