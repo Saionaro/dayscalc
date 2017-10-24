@@ -1,0 +1,115 @@
+@card-height: 200px;
+@card-width: 520px;
+@input-heights: 22px;
+@checkbox-size: 14px;
+@main-blue: #4EB5E6;
+@dark-blue: #0682BD;
+
+html, body {
+   height: 100%;
+}
+
+html {
+   font-family: Helvetica;
+}
+
+body {
+   margin: 0;
+   display: flex;
+}
+
+input {
+   outline: none;
+   transition-property: box-shadow, background-color, color;
+   transition-duration: .3s;
+}
+
+.dc {
+
+   &--error {
+      background-color: #ffc5c5;
+   }
+   &-checkbox {
+      font-size: @checkbox-size;
+      margin: 6px 0;
+      display: flex;
+      align-items: center;
+
+      > input {
+         height: @checkbox-size;
+         width: @checkbox-size;
+      }
+   }
+   &-wrapper {
+      margin: auto;
+   }
+   &-card {
+      display: flex;
+      flex-direction: column;
+      height: @card-height;
+      width: @card-width;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 12px rgba(0,0,0,.15);
+      border-radius: 4px;
+      opacity: 0;
+      transition-property: transform, opacity;
+      transition-duration: .5s;
+
+      &__title {
+         height: 50px;
+         font-size: 22px;
+         color: @main-blue;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         &:hover {
+            cursor: default;
+         }
+      }
+      &__body {
+         margin: 20px;
+         display: flex;
+         justify-content: space-between;
+      }
+      &__footer {
+         position: relative;
+         flex: 1 1 auto;
+         display: flex;
+         justify-content: center;
+      }
+   }
+   &-button {
+      color: @main-blue;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+      outline: none !important;
+      font-size: 20px;
+
+      &--switch {
+         align-self: flex-end;
+         right: 0;
+         position: absolute;
+         font-size: 16px;
+      }
+      &:hover {
+         cursor: pointer;
+         color: @dark-blue;
+      }
+   }
+   &-date,
+   &-numbox {
+      border: none;
+      border-bottom: 1px solid @main-blue;
+      font-size: @input-heights;
+      height: @input-heights;
+   }
+   &-date {
+      width: 120px;
+      text-align: center;
+   }
+   &-numbox {
+      width: 65px;
+      text-align: right;
+   }
+}
