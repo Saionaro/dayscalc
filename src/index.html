@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>DaysCalc</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <meta name=viewport content="width=device-width, initial-scale=1.3">
+   </head>
+   <body>
+      <div class="dc-wrapper">
+         <div class="dc-card dc-card--between">
+            <div class="dc-card__title">Количество дней между датами</div>
+            <div class="dc-card__body">
+               <div class="dc-between__from">
+                  <input class="dc-between__from-datebox dc-date" type="text" tabindex="1">
+                  <div class="dc-checkbox">
+                     <input type="checkbox" id="dc-between__from-checkbox" tabindex="-1">
+                     <label for="dc-between__from-checkbox">Включительно</label>
+                  </div>
+               </div>
+               <div class="dc-between__to">
+                  <input class="dc-between__to-datebox dc-date" type="text" tabindex="2">
+                  <div class="dc-checkbox">
+                     <input type="checkbox" id="dc-between__to-checkbox" tabindex="-1">
+                     <label for="dc-between__to-checkbox">Включительно</label>
+                  </div>
+               </div>
+            </div>
+            <div class="dc-card__footer">
+               <button class="dc-button dc-button--submit">Рассчитать</button>
+               <button class="dc-button dc-button--switch">Дней до даты</button>
+            </div>
+         </div>
+         <div class="dc-card dc-card--to">
+            <div class="dc-card__title">Количество дней до даты</div>
+            <div class="dc-card__body">
+               <div class="dc-to__from">
+                  <input class="dc-to__from-datebox dc-date" type="text" tabindex="3">
+                  <div class="dc-checkbox">
+                     <input type="checkbox" id="dc-to__from-checkbox" tabindex="-1">
+                     <label for="dc-to__from-checkbox">Включительно</label>
+                  </div>
+               </div>
+               <input class="dc-to__days dc-numbox" type="number" min="1" max="999">
+            </div>
+            <div class="dc-card__footer">
+               <button class="dc-button dc-button--submit">Рассчитать</button>
+               <button class="dc-button dc-button--switch">Дней между датами</button>
+            </div>
+         </div>
+      </div>
+      <div class="dc-answer">
+         <div class="dc-button dc-answer__closer">Закрыть</div>
+         <div class="dc-answer__wrapper">
+            <div class="dc-answer__content"></div>
+         </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer="defer"></script>
+      <script src="datepicker.bundle.js" defer="defer"></script>
+      <script src="app.bundle.js" defer="defer"></script>
+   </body>
+</html>
