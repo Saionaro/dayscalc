@@ -14,8 +14,8 @@ const pathsToClean = [
 ];
 
 const cleanOptions = {
-   exclude:  ['favicon.ico'],
-}
+   exclude:  ['manifest.json', 'icons'],
+};
 
 module.exports = {
    entry: {
@@ -64,13 +64,18 @@ module.exports = {
                      'utf8'
                   );
                if(NODE_ENV === 'production') {
+                  const yaMetrics = require('./src/metricsScript.js');
                   htmlOutput = htmlOutput.replace (
                      /<script src=(["'])(.+?)bundle\.js/ig,
                      '<script src=$1$2bundle\.' + stats.hash + '\.js"'
                   ).replace (
                      /<link rel="stylesheet" href=(["'])(.+?)\.css/,
                      '<link rel="stylesheet" href="$2.' + stats.hash + '\.css'
-                  );
+                  ).replace (
+                     '</body>',
+                     yaMetrics + '\n</body>'
+                  )
+
                }
                FileSystem.writeFileSync (
                   Path.join(__dirname, 'dist/', htmlFileName),
@@ -79,8 +84,6 @@ module.exports = {
             }
          });
       }
-      // ,
-      // new BundleAnalyzerPlugin()
    ],
    module: {
       rules: [{

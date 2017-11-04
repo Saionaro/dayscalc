@@ -9,7 +9,6 @@ import {
    dehumanizeDate,
    getRoundCurrentTime
 } from '../../utils/utils';
-import './ToCard.less';
 
 export default class ToCard extends Component {
    /**
@@ -48,6 +47,13 @@ export default class ToCard extends Component {
       this._$element.find('.dc-button--submit').click(this._$onSubmit.bind(this, this));
       this._$element.find('.dc-button--switch').click(this._$onSwitch.bind(this, false));
       this._initFields();
+      let children = this._$children;
+      this._$children.days.on('keydown', function(event) {
+         if(event.key === 'Tab') {
+            children.from.focus();
+            return false;
+         }
+      });
    }
    /**
     * Verify card complection
