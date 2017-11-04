@@ -67,7 +67,7 @@ module.exports = {
                   const yaMetrics = require('./src/metricsScript.js');
                   htmlOutput = htmlOutput.replace (
                      /<script src=(["'])(.+?)bundle\.js/ig,
-                     '<script src=$1$2bundle\.' + stats.hash + '\.js"'
+                     '<script src=$1$2bundle\.' + stats.hash + '\.js'
                   ).replace (
                      /<link rel="stylesheet" href=(["'])(.+?)\.css/,
                      '<link rel="stylesheet" href="$2.' + stats.hash + '\.css'
