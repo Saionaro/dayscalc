@@ -10,7 +10,6 @@ import {
    dehumanizeDate,
    getRoundCurrentTime
 } from '../../utils/utils';
-import './BetweenCard.less';
 
 export default class BetweenCard extends Component {
    /**
@@ -28,7 +27,7 @@ export default class BetweenCard extends Component {
     * @type {Object}
     */
    _$state = {
-      from: getRoundCurrentTime(),
+      from: '',
       to: getRoundCurrentTime().addDay()
    };
    /**
@@ -46,10 +45,16 @@ export default class BetweenCard extends Component {
       super(opts);
       this._$onSwitch = opts.onSwitch;
       this._$onSubmit = opts.onSubmit;
-      this._$element.css('opacity', 1);
       this._$element.find('.dc-button--submit').on('click', this._$onSubmit.bind(this, this));
       this._$element.find('.dc-button--switch').on('click', this._$onSwitch.bind(this, true));
       this._initFields();
+      let children = this._$children;
+      this._$children.to.on('keydown', function(event) {
+         if(event.key === 'Tab') {
+            children.from.focus();
+            return false;
+         }
+      });
    }
    /**
     * Verify card complection
@@ -96,7 +101,6 @@ export default class BetweenCard extends Component {
    _initFields() {
       this._$children.from = this._$element.find('.dc-between__from-datebox');
       this._$children.to = this._$element.find('.dc-between__to-datebox');
-      this._$children.from.val(humanizeDate(this._$state.from));
       this._$children.to.val(humanizeDate(this._$state.to));
    }
    /**

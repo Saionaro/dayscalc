@@ -24,6 +24,10 @@ input {
    transition-duration: .3s;
 }
 
+label {
+   cursor: pointer;
+}
+
 .dc {
 
    &--error {
@@ -36,6 +40,7 @@ input {
       align-items: center;
 
       > input {
+         cursor: pointer;
          height: @checkbox-size;
          width: @checkbox-size;
       }
@@ -96,6 +101,9 @@ input {
          cursor: pointer;
          color: @dark-blue;
       }
+      &:active {
+         color: #449ac3;
+      }
    }
    &-date,
    &-numbox {
@@ -106,7 +114,13 @@ input {
    }
    &-date {
       width: 120px;
-      text-align: center;
+      text-align: left;
+      cursor: text;
+
+      &:invalid {
+         color: #ccc;
+         font-size: 12px;
+      }
    }
    &-numbox {
       width: 65px;

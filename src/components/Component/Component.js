@@ -1,3 +1,4 @@
+import DateField from '../DateField/DateField';
 /**
  * Base class for cards
  */
@@ -12,28 +13,19 @@ export default class Component {
     * @type {Boolean}
     */
    _isErrorAnimation = false;
+
+   _$dateFields = [];
    /**
     * Constructor of component
     */
    constructor(opts) {
       this._$element = opts.element;
-      let dateFields = this._$element.find('.dc-date');
-      dateFields.datepicker({
-         autoClose: true
-      });
-      this._initDateMask(dateFields);
-   }
-
-   _initDateMask(inputs) {
-      inputs.on('keypress', function(event) {
-         if(/[0-9]/.test(event.key)) {
-            const vallen = this.value.length;
-            if(vallen === 2 || vallen === 5) {
-               this.value += '.';
-            }
-            return true;
-         }
-         return false;
+      let fields = this._$dateFields,
+         dateFields = this._$element.find('.dc-date');
+      dateFields.each(function() {
+         fields.push(new DateField({
+            element: jQuery(this)
+         }));
       });
    }
    /**
