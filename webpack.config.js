@@ -74,7 +74,7 @@ module.exports = {
                   ).replace (
                      '</body>',
                      yaMetrics + '\n</body>'
-                  )
+                  );
 
                }
                FileSystem.writeFileSync (
