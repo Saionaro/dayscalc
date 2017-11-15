@@ -10,7 +10,7 @@ import {
    fixDayScdSymbol,
    fixDayFirstSymbol,
    pointify
-} from '../../utils/dateFieldReducers';
+} from '../../utils/dateReducers';
 
 export default class DateField {
    /**
