@@ -24,10 +24,10 @@ export default class Answer {
    }
 
    toggle(show) {
-      if(show && this._$state.shown) {
+      if (show && this._$state.shown) {
          this._blink(30);
       } else {
-         if(show) {
+         if (show) {
             this._element.css('opacity', '1');
             this._element.css('transform', 'translateY(100px)');
          } else {
@@ -41,7 +41,7 @@ export default class Answer {
    _blink(shift) {
       this._$state.animation = true;
       this._element.css('transform', `translateY(${100 - shift}px)`);
-      setTimeout(_ => {
+      setTimeout(() => {
          this._$state.animation = false;
          this._element.css('transform', 'translateY(100px)');
       }, 200);

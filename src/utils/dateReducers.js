@@ -18,7 +18,7 @@ export const pointify = stats => {
       newStats.position++;
    }
    return newStats || stats;
-}
+};
 /**
  * Change first number of day, if its more then "3".
  * @param {Object} stats Input state
@@ -34,7 +34,7 @@ export const fixDayFirstSymbol = stats => {
       newStats.key = '3';
    }
    return newStats || stats;
-}
+};
 /**
  * Change secod number of day, if first is "1"
  * @param {Object} stats Input state
@@ -51,7 +51,7 @@ export const fixDayScdSymbol = stats => {
       newStats.key = '1';
    }
    return newStats || stats;
-}
+};
 /**
  * If at first month number inputs num more the 1,
  * adds leading zero
@@ -68,7 +68,7 @@ export const fixMonthFirstSymbol = stats => {
       newStats.insert += '0';
    }
    return newStats || stats;
-}
+};
 /**
  * Change second month number to "2" - if
  * first month num is "1" and inputed more then "2"
@@ -86,7 +86,7 @@ export const fixMonthScdSymbol = stats => {
       newStats.key = '2';
    }
    return newStats || stats;
-}
+};
 /**
  * Change second num of year if inputs not "2"
  * @param {Object} stats Input state
@@ -102,7 +102,7 @@ export const fixYear = stats => {
       newStats.key = '2';
    }
    return newStats || stats;
-}
+};
 /**
  * Adds inputed number
  * @param {Object} stats Input state
@@ -112,7 +112,7 @@ export const addKey = stats => {
    let newStats = Object.assign({}, stats);
    newStats.insert += stats.key;
    return newStats;
-}
+};
 /**
  * Generate final date value after user input
  * @param {Object} stats Input state
@@ -134,4 +134,4 @@ export const calculateValue = stats => {
       value,
       submit
    };
-}
+};

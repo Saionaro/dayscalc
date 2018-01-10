@@ -1,3 +1,4 @@
+/* eslint-env node */
 /**
  * Converts data from
  * http://data.gov.ru/opendata/7708660670-proizvcalendar
@@ -26,7 +27,7 @@ const fs = require('fs'),
 function getData() {
    return new Promise((win, fail) => {
       converter.fromFile(process.argv[2], (err, result) => {
-         if(err) {
+         if (err) {
             return fail(err);
          } else {
             return win(result);
@@ -45,10 +46,11 @@ function convertData(data) {
    };
    data.forEach(item => {
       let yearData = {};
-      for(let i = 1; i < 13; i++) {
+      for (let i = 1; i < 13; i++) {
          let monthData = {},
             holidays = item[MOHTHS_DCIT[i]];
          holidays.split(',').forEach(num => {
+            // eslint-disable-next-line no-useless-escape
             monthData[+num.replace('\*', '')] = {
                isWorking: 2
             };
@@ -65,17 +67,20 @@ function convertData(data) {
  */
 function saveData(data) {
    fs.writeFile('./dates.json', JSON.stringify(data), res => {
-      if(!res) {
+      if (!res) {
+         // eslint-disable-next-line no-console
          console.log('Done!');
       } else {
+         // eslint-disable-next-line no-console
          console.log('FATAL!', res);
       }
    });
 }
-
+// eslint-disable-next-line no-console
 console.log('Starts...');
 
-if(!process.argv[2]) {
+if (!process.argv[2]) {
+   // eslint-disable-next-line no-console
    console.log('FATAL! Path to CSV-file is required!');
    return;
 }

@@ -8,12 +8,12 @@ const DATE_REGEX = /(\d{2})\.(\d{2})\.(\d{4})/;
  * @return {String}
  */
 export const humanizeDate = date => {
-   let day = date.getDate()
-   if(day < 10) {
+   let day = date.getDate();
+   if (day < 10) {
       day = `0${day}`;
    }
    let month = date.getMonth() + 1;
-   if(month < 10) {
+   if (month < 10) {
       month = `0${month}`;
    }
    return `${day}.${month}.${date.getFullYear()}`;
@@ -24,13 +24,13 @@ export const humanizeDate = date => {
  * @return {Date}
  */
 export const dehumanizeDate = date => {
-   return new Date(date.replace(DATE_REGEX, '$2/$1/$3'))
+   return new Date(date.replace(DATE_REGEX, '$2/$1/$3'));
 };
 /**
  * Get current date (without hours, mins, scds)
  * @return {Date}
  */
-export const getRoundCurrentTime = _ => {
+export const getRoundCurrentTime = () => {
    let date = new Date();
    date.setHours(0);
    date.setMinutes(0);
@@ -63,8 +63,8 @@ export const getWorkDaysDelta = (fst, scd, includes) => {
    let curr = includes.from ? new Date(fst) : fst.addDay(),
       finish = includes.to ? scd.addDay() : new Date(scd),
       diff = 0;
-   while(curr.getTime() !== finish.getTime()) {
-      if(!curr.isHoliday()) {
+   while (curr.getTime() !== finish.getTime()) {
+      if (!curr.isHoliday()) {
          diff++;
       }
       curr = curr.addDay();
@@ -81,7 +81,7 @@ export const getWorkDaysDelta = (fst, scd, includes) => {
 export const getDateAfterDays = (date, days, include) => {
    let count = 0,
       res = include ? new Date(date) : date.addDay();
-   while(++count < days) {
+   while (++count < days) {
       res = res.addDay();
    }
    return res;
@@ -97,8 +97,8 @@ export const getDateAfterWorkDays = (date, days, include) => {
    let count = 0,
       res = include ? new Date(date) : date.addDay(),
       buferDate = include ? new Date(date) : date.addDay();
-   while(count < days) {
-      if(!buferDate.isHoliday()) {
+   while (count < days) {
+      if (!buferDate.isHoliday()) {
          count++; 
          res = new Date(buferDate);
       }
@@ -120,9 +120,9 @@ export const getPadej = (count, cases) => {
    } else { 
       word = (
          num % 10 == 1 && num % 100 != 11 ? cases.nom
-         : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) 
-         ? cases.gen
-         : cases.plu
+            : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20) 
+               ? cases.gen
+               : cases.plu
       );
    }
    return word;
@@ -136,15 +136,15 @@ export const compose = function() {
    const count = arguments.length;
    let i = -1,
       reducers = [];
-   while(i++ < count) {
+   while (i++ < count) {
       reducers.push(arguments[i]);
    }
    return function(initial) {
       let result = initial,
          i = count;
-      while(i--) {
+      while (i--) {
          result = reducers[i](result);
       }
       return result;
-   }
+   };
 };

@@ -49,7 +49,7 @@ export default class ToCard extends Component {
       this._initFields();
       let children = this._$children;
       this._$children.days.on('keydown', function(event) {
-         if(event.key === 'Tab') {
+         if (event.key === 'Tab') {
             children.from.focus();
             return false;
          }
@@ -61,10 +61,10 @@ export default class ToCard extends Component {
     */
    validate() {
       let {from, days} = this._getLastestState();
-      if(!from.isValid()) {
+      if (!from.isValid()) {
          return this._alert('from');
       }
-      if(!days || days < 1) {
+      if (!days || days < 1) {
          return this._alert('days');
       }
       return true;
@@ -124,7 +124,7 @@ export default class ToCard extends Component {
     * @return {Boolean} Always false, bcs its error-handler
     */
    _alert(whatBad) {
-      if(/from/.test(whatBad)) {
+      if (/from/.test(whatBad)) {
          this.redLight(this._$children.from);
       } else {
          this.redLight(this._$children.days);

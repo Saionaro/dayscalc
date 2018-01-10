@@ -50,7 +50,7 @@ export default class BetweenCard extends Component {
       this._initFields();
       let children = this._$children;
       this._$children.to.on('keydown', function(event) {
-         if(event.key === 'Tab') {
+         if (event.key === 'Tab') {
             children.from.focus();
             return false;
          }
@@ -62,16 +62,16 @@ export default class BetweenCard extends Component {
     */
    validate() {
       var {from, to} = this._getLastestState();
-      if(!from.isValid() && !to.isValid()) {
+      if (!from.isValid() && !to.isValid()) {
          return this._alert('all');
       }
-      if(!from.isValid()) {
+      if (!from.isValid()) {
          return this._alert('from');
       }
-      if(!to.isValid()) {
+      if (!to.isValid()) {
          return this._alert('to');
       }
-      if(!to.isAfter(from)) {
+      if (!to.isAfter(from)) {
          return this._alert('all');
       }
       return true;
@@ -120,34 +120,34 @@ export default class BetweenCard extends Component {
     */
    _generateHTML(calendarValue, workValue) {
       let res = [];
-      if(calendarValue === 0) {
+      if (calendarValue === 0) {
          res.push('<div>Нет календарных дней между датами.</div>');
       } else {
          let calendDays = getPadej(calendarValue, {
-            nom: 'календарный',
-            gen: 'календарных',
-            plu: 'календарных'
-         }),
-         days = getPadej(calendarValue, {
-            nom: 'день',
-            gen: 'дня',
-            plu: 'дней'
-         });
+               nom: 'календарный',
+               gen: 'календарных',
+               plu: 'календарных'
+            }),
+            days = getPadej(calendarValue, {
+               nom: 'день',
+               gen: 'дня',
+               plu: 'дней'
+            });
          res.push(`<div>${calendarValue} ${calendDays} ${days} между датами.</div>`);
       }
-      if(workValue === 0) {
+      if (workValue === 0) {
          res.push('<div>Нет рабочих дней между датами.</div>');
       } else {
          let works = getPadej(workValue, {
-            nom: 'рабочий',
-            gen: 'рабочих',
-            plu: 'рабочих'
-         }),
-         days = getPadej(workValue, {
-            nom: 'день',
-            gen: 'дня',
-            plu: 'дней'
-         });
+               nom: 'рабочий',
+               gen: 'рабочих',
+               plu: 'рабочих'
+            }),
+            days = getPadej(workValue, {
+               nom: 'день',
+               gen: 'дня',
+               plu: 'дней'
+            });
          res.push(`<div>${workValue} ${works} ${days} между датами.</div>`);
       }
       return res.join('');
@@ -158,9 +158,9 @@ export default class BetweenCard extends Component {
     * @return {Boolean} Always false, bcs its error-handler
     */
    _alert (whatBad) {
-      if(/from/.test(whatBad)) {
+      if (/from/.test(whatBad)) {
          this.redLight(this._$children.from);
-      } else if(/to/.test(whatBad)) {
+      } else if (/to/.test(whatBad)) {
          this.redLight(this._$children.to);
       } else {
          this.redLight(this._$element.find('.dc-date'));

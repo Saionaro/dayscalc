@@ -32,7 +32,7 @@ export default class DateField {
    _initEventListeners() {
       this._$element.on('keypress', function(event) {
          let key = event.key;
-         if(/[0-9]/.test(key)) {
+         if (/[0-9]/.test(key)) {
             let value = this.value,
                position = this.selectionStart,
                insert = '';
@@ -51,7 +51,7 @@ export default class DateField {
                position,
                insert
             });
-            if(data.submit) {
+            if (data.submit) {
                this.value = data.value;
                this.setSelectionRange(data.shift, data.shift);
             }
@@ -61,6 +61,6 @@ export default class DateField {
       this._$element.on('focus', function() {
          this.setSelectionRange(0, 0);
       });
-      this._$element.on('paste', _ => false);
+      this._$element.on('paste', () => false);
    }
 }
