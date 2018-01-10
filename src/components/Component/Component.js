@@ -33,10 +33,10 @@ export default class Component {
     * @param {Object} element jQ element
     */
    redLight(element) {
-      if(!element._isErrorAnimation) {
+      if (!element._isErrorAnimation) {
          element._isErrorAnimation = true;
          element.addClass('dc--error');
-         setTimeout(_ => {
+         setTimeout(() => {
             element._isErrorAnimation = false;
             element.removeClass('dc--error');
          }, 1000);

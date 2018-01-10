@@ -1,0 +1,27 @@
+{
+   "parser": "babel-eslint",
+   "extends": [
+      "eslint:recommended",
+      "plugin:import/recommended"
+   ],
+   "plugins": [
+      "import"
+   ],
+   "globals": {
+      "jQuery": true,
+      "module": true,
+      "Promise": true
+   },
+   "rules": {
+      "camelcase": [2],
+      "indent": [2, 3],
+      "quotes": [2, "single", {
+         "allowTemplateLiterals": true
+      }],
+      "semi": [2, "always"],
+      "keyword-spacing": [2, { "before": true }]
+   },
+   "env": {
+      "browser": true
+   }
+}

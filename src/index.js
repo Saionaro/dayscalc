@@ -8,7 +8,7 @@ import {
 
 patchDate();
 
-const app = new App({
+new App({
    element: jQuery(document.body)
 });
 

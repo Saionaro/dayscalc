@@ -11,7 +11,7 @@
       <meta name=viewport content="width=device-width, initial-scale=1.3">
       <meta name="description" content="Dayscalc позволяет быстро рассчитать количество дней между датами, а так же вычислить дату, которая будет через какое-то количество дней.">
    </head>
-   <body onload="document.querySelector('.dc-card--between').style.opacity = 1;">
+   <body>
       <div class="dc-wrapper">
          <div class="dc-card dc-card--between">
             <div class="dc-card__title">Количество дней между датами</div>
@@ -60,6 +60,7 @@
             <div class="dc-answer__content"></div>
          </div>
       </div>
+      <script type="text/javascript">setTimeout(function() {document.querySelector('.dc-card--between').style.opacity = 1;}, 50);</script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer="defer"></script>
       <script src="datepicker.bundle.js" defer="defer"></script>
       <script src="app.bundle.js" defer="defer"></script>

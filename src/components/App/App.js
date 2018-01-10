@@ -50,7 +50,7 @@ export default class App {
     */
    _initListeners() {
       document.body.addEventListener('keydown', event => {
-         if(event.keyCode === 13) {
+         if (event.keyCode === 13) {
             this._onSubmit (
                this._$state.mode === 'between' ?
                   this._$children.betweenCard
@@ -58,7 +58,7 @@ export default class App {
                   this._$children.toCard
             );
          }
-         if(event.keyCode === 27) {
+         if (event.keyCode === 27) {
             this._$children.answerCard.toggle(false);
          }
       });
@@ -78,7 +78,7 @@ export default class App {
     * @param {Object} card Between or to card
     */
    _onSubmit(card) {
-      if(card.validate()) {
+      if (card.validate()) {
          let content = card.getResult();
          this._$children.answerCard.setContent(content);
          this._$children.answerCard.toggle(true);
