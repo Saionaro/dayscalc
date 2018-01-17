@@ -9,8 +9,8 @@ html, body {
    height: 100%;
 }
 
-html {
-   font-family: Helvetica;
+html, button {
+   font-family: Helvetica, Arial;
 }
 
 body {
@@ -37,10 +37,14 @@ label {
       font-size: @checkbox-size;
       margin: 6px 0;
       display: flex;
-      align-items: center;
+      align-items: baseline;
 
+      &__label {
+         margin-left: 6px;
+      }
       > input {
          cursor: pointer;
+         margin: 0px;
          height: @checkbox-size;
          width: @checkbox-size;
       }
@@ -120,6 +124,9 @@ label {
       &:invalid {
          color: #ccc;
          font-size: 12px;
+      }
+      &:focus {
+         border-bottom: 1px solid @dark-blue;
       }
    }
    &-numbox {
