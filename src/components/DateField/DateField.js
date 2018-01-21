@@ -68,6 +68,22 @@ const routeHandlers = data => {
       };
    }
 };
+/**
+ * Internal constants list
+ * @type {Object}
+ */
+const _$constants = {
+   /**
+    * Keycodes of keys, that not needs to disable
+    * @type {Object}
+    */
+   ALLOWED_KEYCODES: {
+      37: true,
+      39: true,
+      9: true,
+      13: true
+   }
+};
 
 export default class DateField {
    /**
@@ -100,7 +116,7 @@ export default class DateField {
             this.value = data.value;
             this.setSelectionRange(data.shift, data.shift);
          }
-         return keyCode === 37 || keyCode === 39 || keyCode === 9;
+         return !!_$constants.ALLOWED_KEYCODES[keyCode];
       });
       this._$element.on('focus', function() {
          this.setSelectionRange(0, 0);
