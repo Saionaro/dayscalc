@@ -53,25 +53,25 @@ describe('getWorkDaysDelta', () => {
       expect(utils.getWorkDaysDelta(new Date('10.10.17'), new Date('11.07.17'), {
          from: false,
          to: false
-      })).toBe(17);
+      })).toBe(18);
    });
    test('included from', () => {
       expect(utils.getWorkDaysDelta(new Date('10.10.17'), new Date('11.07.17'), {
          from: true,
          to: false
-      })).toBe(18);
+      })).toBe(19);
    });
    test('excluded to', () => {
       expect(utils.getWorkDaysDelta(new Date('10.10.17'), new Date('11.07.17'), {
          from: false,
          to: true
-      })).toBe(18);
+      })).toBe(19);
    });
    test('included all', () => {
       expect(utils.getWorkDaysDelta(new Date('10.10.17'), new Date('11.07.17'), {
          from: true,
          to: true
-      })).toBe(19);
+      })).toBe(20);
    });
 });
 
