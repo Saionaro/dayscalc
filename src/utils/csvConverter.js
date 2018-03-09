@@ -50,10 +50,12 @@ function convertData(data) {
          let monthData = {},
             holidays = item[MOHTHS_DCIT[i]];
          holidays.split(',').forEach(num => {
-            // eslint-disable-next-line no-useless-escape
-            monthData[+num.replace('\*', '')] = {
-               isWorking: 2
-            };
+            if (!/\*/.test(num)) {
+               // eslint-disable-next-line no-useless-escape
+               monthData[+num.replace('\*', '')] = {
+                  isWorking: 2
+               };
+            }
          });
          yearData[i] = monthData;
       }
