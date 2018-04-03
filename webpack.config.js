@@ -1,9 +1,7 @@
 'use strict';
 
 const Webpack = require('webpack'),
-   FileChanger = require('webpack-file-changer'),
    ExtractTextPlugin = require('extract-text-webpack-plugin'),
-   BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
    NODE_ENV = process.env.NODE_ENV || 'development',
    CleanWebpackPlugin = require('clean-webpack-plugin'),
    Path = require('path'),
@@ -63,7 +61,7 @@ module.exports = {
                      Path.join(__dirname, 'src/' + htmlFileName),
                      'utf8'
                   );
-               if(NODE_ENV === 'production') {
+               if (NODE_ENV === 'production') {
                   const yaMetrics = require('./src/metricsScript.js');
                   htmlOutput = htmlOutput.replace (
                      /<script src=(["'])(.+?)bundle\.js/ig,
@@ -100,7 +98,7 @@ module.exports = {
    }
 };
 
-if(NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
    module.exports.plugins.push(new Webpack.optimize.UglifyJsPlugin({
       compress: {
          warnings: false,
