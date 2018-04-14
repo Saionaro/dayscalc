@@ -71,11 +71,10 @@ module.exports = {
                   ).replace (
                      /<link rel="stylesheet" href=(["'])(.+?)\.css/,
                      '<link rel="stylesheet" href="$2.' + stats.hash + '\.css'
+                  ).replace (
+                     '</body>',
+                     yaMetrics + '\n</body>'
                   );
-                  // .replace (
-                  //    '</body>',
-                  //    yaMetrics + '\n</body>'
-                  // );
                   critical.generate({
                      base: 'dist/',
                      src: 'index.html',
