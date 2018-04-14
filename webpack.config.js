@@ -1,11 +1,11 @@
-'use strict';
-
 const Webpack = require('webpack'),
    ExtractTextPlugin = require('extract-text-webpack-plugin'),
    NODE_ENV = process.env.NODE_ENV || 'development',
+   isDev = NODE_ENV === 'development',
    CleanWebpackPlugin = require('clean-webpack-plugin'),
    Path = require('path'),
-   FileSystem = require('fs');
+   FileSystem = require('fs'),
+   critical = require('critical');
 
 const pathsToClean = [
    'dist'
@@ -16,6 +16,13 @@ const cleanOptions = {
 };
 
 module.exports = {
+   mode: isDev ? 'development' : 'production',
+   optimization: {
+      namedModules: true,
+      minimize: true,
+      noEmitOnErrors: true,
+      concatenateModules: true
+   },
    entry: {
       app: ['./src/index.js'],
       datepicker: ['air-datepicker'],
@@ -23,7 +30,7 @@ module.exports = {
    output: {
       path: __dirname + '/dist',
       publicPath: '/dist/',
-      filename: NODE_ENV === 'development' ? '[name].bundle.js' : '[name].bundle.[hash].js',
+      filename: isDev ? '[name].bundle.js' : '[name].bundle.[hash].js',
       library: '[name]',
       libraryTarget: 'var'
    },
@@ -33,23 +40,18 @@ module.exports = {
    resolve: {
       extensions: ['.js', '.less']
    },
-   watch: NODE_ENV === 'development',
-   devtool: NODE_ENV === 'development' ? 'sheap-inline-module-source-map' : false,
+   watch: isDev,
+   devtool: isDev ? 'sheap-inline-module-source-map' : false,
    plugins: [
       new CleanWebpackPlugin(pathsToClean, cleanOptions),
       new ExtractTextPlugin({
-         filename: NODE_ENV === 'development' ? 'styles.css' : 'styles.[hash].css',
+         filename: isDev ? 'styles.css' : 'styles.[hash].css',
          allChunks: true
       }),
-      new Webpack.NoEmitOnErrorsPlugin(),
       new Webpack.DefinePlugin({
          'process.env': {
             'NODE_ENV': JSON.stringify(NODE_ENV)
          }
-      }),
-      new Webpack.optimize.CommonsChunkPlugin({
-         name: 'datepicker',
-         fileName: 'datepicker.js'
       }),
       function() {
          this.plugin('done', statsData => {
@@ -61,7 +63,7 @@ module.exports = {
                      Path.join(__dirname, 'src/' + htmlFileName),
                      'utf8'
                   );
-               if (NODE_ENV === 'production') {
+               if (!isDev) {
                   const yaMetrics = require('./src/metricsScript.js');
                   htmlOutput = htmlOutput.replace (
                      /<script src=(["'])(.+?)bundle\.js/ig,
@@ -73,7 +75,15 @@ module.exports = {
                      '</body>',
                      yaMetrics + '\n</body>'
                   );
-
+                  critical.generate({
+                     base: 'dist/',
+                     src: 'index.html',
+                     dest: 'index.html',
+                     extract: true,
+                     inline: true,
+                     minify: true,
+                     css: [`dist/styles.${!isDev ? `${stats.hash}.` : ''}css`],
+                  });
                }
                FileSystem.writeFileSync (
                   Path.join(__dirname, 'dist/', htmlFileName),
@@ -97,13 +107,3 @@ module.exports = {
       }]
    }
 };
-
-if (NODE_ENV === 'production') {
-   module.exports.plugins.push(new Webpack.optimize.UglifyJsPlugin({
-      compress: {
-         warnings: false,
-         drop_console: true,
-         unsafe: true
-      }
-   }));
-}

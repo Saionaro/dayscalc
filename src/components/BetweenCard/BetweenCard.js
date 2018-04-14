@@ -55,6 +55,7 @@ export default class BetweenCard extends Component {
             return false;
          }
       });
+      this._$element.css('opacity', '1');
    }
    /**
     * Verify card complection

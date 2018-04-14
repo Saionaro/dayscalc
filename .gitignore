@@ -2,3 +2,4 @@
 /dist/*.js
 /dist/*.css
 /dist/*.html
+*error.log
