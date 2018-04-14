@@ -17,6 +17,7 @@ export default class Answer {
       this._element = opts.element;
       this._$children.content = this._element.find('.dc-answer__content');
       this._element.find('.dc-answer__closer').on('click', this.toggle.bind(this, false));
+      this._element.css('transition-duration', '.350s');
    }
 
    setContent(content) {
