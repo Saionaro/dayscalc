@@ -5,8 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV='production' webpack --mode production",
-    "lint": "yarn run lint && eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint": "yarn run lint:js && yarn run lint:css",
+    "lint:js": "eslint src",
+    "lint:css": "stylelint \"src/**/*.less\" --syntax less",
     "test": "jest --verbose"
   },
   "repository": {
@@ -49,6 +50,8 @@
     "postcss": "^7.0.2",
     "postcss-loader": "^3.0.0",
     "style-loader": "0.22.1",
+    "stylelint": "^9.4.0",
+    "stylelint-config-recommended": "^2.1.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0",
