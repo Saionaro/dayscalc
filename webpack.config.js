@@ -64,16 +64,12 @@ module.exports = {
                      'utf8'
                   );
                if (!isDev) {
-                  const yaMetrics = require('./src/metricsScript.js');
                   htmlOutput = htmlOutput.replace (
                      /<script src=(["'])(.+?)bundle\.js/ig,
                      '<script src=$1$2bundle\.' + stats.hash + '\.js'
                   ).replace (
                      /<link rel="stylesheet" href=(["'])(.+?)\.css/,
                      '<link rel="stylesheet" href="$2.' + stats.hash + '\.css'
-                  ).replace (
-                     '</body>',
-                     yaMetrics + '\n</body>'
                   );
                   critical.generate({
                      base: 'dist/',
