@@ -23,7 +23,7 @@
   "homepage": "https://github.com/Saionaro/dayscalc#readme",
   "dependencies": {
     "air-datepicker": "2.2.3",
-    "autoprefixer": "9.1.0",
+    "autoprefixer": "9.1.4",
     "critical": "1.3.4"
   },
   "devDependencies": {
