@@ -52,7 +52,7 @@
     "style-loader": "0.23.0",
     "stylelint": "9.6.0",
     "stylelint-config-recommended": "2.1.0",
-    "url-loader": "1.0.1",
+    "url-loader": "1.1.2",
     "webpack": "4.20.2",
     "webpack-cli": "3.1.2",
     "webpack-file-changer": "2.0.1"
